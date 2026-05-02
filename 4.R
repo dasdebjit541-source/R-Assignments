@@ -1,0 +1,13 @@
+library(lpSolve)
+costs<-matrix(c(20,40,20,14,
+                30,50,20,16,
+                50,30,20,15,
+                40,50,30,17),nrow=4,byrow=TRUE)
+colnames(costs)<-c("A","B","C","D")
+rownames(costs)<-c("1","2","3","4")
+col.signs<-rep("<=",4)
+row.signs<-rep(">=",4)
+row.rhs<-c(94,116,115,137)
+col.rhs<-c(140,170,90,62)
+lp.transport(costs,"min",row.signs,row.rhs,col.signs,col.rhs)
+lp.transport(costs,"min",row.signs,row.rhs,col.signs,col.rhs)$solution

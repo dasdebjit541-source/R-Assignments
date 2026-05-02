@@ -1,0 +1,12 @@
+library(lpSolve)
+f.obj<-c(81,50)
+f.con<-matrix(c(1.3,4.1,
+                76,53),nrow=2,byrow=T)
+f.dir<-c("<=",
+         ">=")
+f.rhs<-c(24,10)
+z<-lp("min",f.obj,f.con,f.dir,f.rhs)
+summary(z)
+print(z)
+z<-lp("min",f.obj,f.con,f.dir,f.rhs)$solutation
+z<-lp("min",f.obj,f.con,f.dir,f.rhs)$objval
